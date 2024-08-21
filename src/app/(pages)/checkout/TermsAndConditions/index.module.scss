@@ -1,0 +1,24 @@
+.termsContainer {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.termsLabel {
+  display: flex;
+  align-items: center;
+}
+
+.termsLabel input {
+  margin-right: 0.5rem;
+}
+
+.termsLabel a {
+  color: #0070f3;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+

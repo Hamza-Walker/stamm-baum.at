@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PAYLOAD_CONFIG_PATH: dist/payload/payload.config.js
+      PAYLOAD_SECRET: 0xCp+KlNVvjOzJljlnrPxgyA9gWdzobpDEbG1D/eQ1o=
+    volumes:
+      - .:/app
+    command: npm run serve
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.payload.rule=Host(`your_domain.com`)"
+      - "traefik.http.services.payload.loadbalancer.server.port=3000"
