@@ -23,7 +23,7 @@ export default async function CreateAccount() {
       <div className={classes.heroImg}>
         <Link href="/">
           <Image
-            src="/smoking-logo.svg"
+            src="/stamm-baum-logo.png"
             alt="logo"
             width={250}
             height={23}
